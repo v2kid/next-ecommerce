@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { User } from 'next-auth'
 
 export const authApi = createApi({
   reducerPath: 'authApi', // Tên field trong Redux state

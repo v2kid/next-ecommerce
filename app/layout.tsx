@@ -1,6 +1,7 @@
 import { Providers } from "./store/provider";
 import "./globals.css";
 import { Toaster } from "sonner";
+import * as React from 'react';
 export const metadata = {
   title: "Admin Dashboard",
   description: "Next.js 14 Tutorial",

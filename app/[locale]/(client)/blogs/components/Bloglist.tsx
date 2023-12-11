@@ -1,6 +1,5 @@
 "use client";
 import { useGetBlogsQuery } from "@/app/store/service/blog/blog.service";
-import Skeletonlist from "@/app/ui/client/skeletons/skeleton1";
 import Image from "next/image";
 import Link from "next/link";
 

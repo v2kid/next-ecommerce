@@ -1,8 +1,7 @@
 'use client'
-import { User, useAddUserMutation } from "@/app/store/service/users/user.service";
+import {  useAddUserMutation } from "@/app/store/service/users/user.service";
 import styles from "@/app/ui/dashboard/users/addUser/addUser.module.css";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 const AddUserPage = () => {
   interface User {
     name : string,
@@ -20,7 +19,6 @@ const AddUserPage = () => {
   const [formData, setFormData] = useState<User>(initialState)
   const handleSubmit= async ()=>{
     await addUser(formData).unwrap()
-    toast.success('add Post success')
   }
   
   return (

@@ -122,6 +122,7 @@ export default function EditProduct({ id }: any) {
                       onClick={() => {
                         setMainImg(index);
                       }}
+                      key={index}
                     />
                   );
                 } else {

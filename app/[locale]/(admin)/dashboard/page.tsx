@@ -5,8 +5,6 @@ import Chart from "@/app/ui/dashboard/chart/chart";
 import styles from "@/app/ui/dashboard/dashboard.module.css";
 import Transactions from "@/app/ui/dashboard/transactions/transactions";
 import Rightbar from "@/app/ui/dashboard/rightbar/rightbar";
-import { Container } from "@mui/material";
-import { redirect } from "next/navigation";
 
 const cards = [
   {

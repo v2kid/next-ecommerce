@@ -5,29 +5,21 @@ import {
   useGetUsersQuery,
 } from "@/app/store/service/users/user.service";
 import Link from "next/link";
-import Search from "@/app/ui/dashboard/search/search";
 import { useDispatch } from "react-redux";
 import { startEditUser } from "@/app/store/service/users/userSlice";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import {
   Box,
-  Button,
   IconButton,
-  InputBase,
-  TextField,
-  alpha,
-  styled,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { MdSearch } from "react-icons/md";
-import { toast } from "sonner";
 export default function UsersList() {
   const [keyword, setKeyword] = useState("");
   const { data } = useGetUsersQuery(keyword);
-  const [deleteUser,{ error }] = useDeleteUserMutation();
+  const [deleteUser] = useDeleteUserMutation();
   const dispatch = useDispatch();
   const startEdit = (id: any) => {
     dispatch(startEditUser(id));
@@ -35,9 +27,9 @@ export default function UsersList() {
   const handledelete = async (id: any) => {
      await deleteUser(id);
   };
-  // if (!data) {
-  //   return null;
-  // }
+  if (!data) {
+    return null;
+  }
   const columns: GridColDef[] = [
     { field: "_id", headerName: "ID", width: 90 },
     {

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import EditComponent from "../components/usersEdit";
 
 const SingleUserPage = async ({ params }) => {
