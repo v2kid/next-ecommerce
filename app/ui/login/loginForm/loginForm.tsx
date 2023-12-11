@@ -20,15 +20,16 @@ export default function LoginForm() {
 
   const router = useRouter();
   const handleSubmit = async () =>{
-    try{
-     const result =  await signIn(loginForm)
-     const accessToken = signInresult.data.accessToken;
-     Cookies.set('token', accessToken)
-    router.push('/dashboard')
-    }catch(error){
-      toast.error('some things went wrong')
-    }
-     
+    await signIn(loginForm)
+     .unwrap()
+  .then((payload) => {
+  const accessToken = payload.accessToken
+  Cookies.set('token',accessToken)
+  }).then(()=>router.push('/dashboard'))
+  .catch((error) => toast.warning('some things went wrong'));
+    //  const accessToken = signInresult.data.accessToken;
+    //  Cookies.set('token', accessToken)
+    // router.push('/dashboard')
   }
   // const handleSubmit = async () => {
   //   try {
