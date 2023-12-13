@@ -23,7 +23,10 @@ export default function BlogList() {
                   Entertainment
                 </p>
                 <a className="text-lg font-bold sm:text-xl md:text-2xl">
-                <Link href={`/blogs/${item.id}`}>
+                <Link  href={{
+            pathname: `/blogs/${item.id}`,
+            query: { name: `${item.attributes.title}` },
+          }}>
                   {item.attributes.title}
               </Link>
                 </a>

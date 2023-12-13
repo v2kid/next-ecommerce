@@ -1,11 +1,12 @@
 'use client'
 import { useGetDetailQuery } from "@/app/store/service/product/product.service";
 import { useI18n } from "@/app/ui/locales/client";
-import { Suspense } from "react";
+import { useRouter } from "next/router";
 
-export default function ProductDetail({ params }){
-  const t =  useI18n();
-    const  {id}  = params;
+
+export default function ProductDetail({params}){
+  const t =  useI18n()
+  const {id}= params
     const {data} = useGetDetailQuery(id)
     if(!data) return null
     return(

@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import Image from 'next/image'
 import { ArrowLeftIcon, ArrowRightIcon} from '@heroicons/react/24/outline'

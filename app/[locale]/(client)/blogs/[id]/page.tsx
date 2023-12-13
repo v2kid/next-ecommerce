@@ -2,14 +2,12 @@
 import { useGetDetailBlogQuery } from "@/app/store/service/blog/blog.service";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
-export default function DetailBlog({params}:any){
-  const  {id} = params;
+export default function DetailBlog({params}){
+  const { id } = params
   const {data : Detail} = useGetDetailBlogQuery(id)
-  console.log(Detail)
-
   if(!Detail) return null
+  console.log(id)
     return(
-   
       <div  className="relative">
        <div className="w-full md:w-2/3 mx-auto">
             <div className="mx-5 my-3 text-sm">

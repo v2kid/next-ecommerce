@@ -1,125 +1,133 @@
-'use client'
+"use client";
 import { useGetProductsQuery } from "@/app/store/service/product/product.service";
 import { Fragment, useEffect, useState } from "react";
 import { MdDashboard } from "react-icons/md";
 import Skeletonlist from "../skeletons/skeleton1";
 import Link from "next/link";
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 
-export default function ProductList(){
-    const menuItems = [
+export default function ProductList() {
+  const menuItems = [
+    {
+      title: "Category",
+      list: [
         {
-          title: "Category",
-          list: [
-            {
-              title: "All",
-              value: "All",
-              icon: <MdDashboard />,
-            },
-            {
-              title: "Shirt",
-              value: "Shirt",
-              icon: <MdDashboard />,
-            },
-            {
-              title: "Pant",
-              value: "Pant",
-              icon: <MdDashboard />,
-            },
-            {
-              title: "Shoes",
-              value: "Shoes",
-              icon: <MdDashboard />,
-            },
-          ],
+          title: "All",
+          value: "All",
+          icon: <MdDashboard />,
         },
-      ];
-      const [page, setPage] = useState(1);
-      const [gender, setGender] = useState("");
-      const [keyword, setKeyword] = useState("");
-      const [category, setCategory] = useState("");
-      const {
-        data: products,
-        isFetching,
-      } = useGetProductsQuery(
-        { keyword, category, gender, page },
-        { refetchOnMountOrArgChange: true },
-      );
-      console.log(products)
-      useEffect(() => {
-        const onScroll = () => {
-          const scrolledToBottom =
-            window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
-          if (scrolledToBottom && !isFetching) {
-            console.log("Fetching more data...");
-            setPage(page + 1);
-          }
-        };
-        document.addEventListener("scroll", onScroll);
-        return function () {
-          document.removeEventListener("scroll", onScroll);
-        };
-      }, [page, isFetching]);
-      if (!products) {
-        return null;
+        {
+          title: "Shirt",
+          value: "Shirt",
+          icon: <MdDashboard />,
+        },
+        {
+          title: "Pant",
+          value: "Pant",
+          icon: <MdDashboard />,
+        },
+        {
+          title: "Shoes",
+          value: "Shoes",
+          icon: <MdDashboard />,
+        },
+      ],
+    },
+  ];
+  const [page, setPage] = useState(1);
+  const [gender, setGender] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [category, setCategory] = useState("");
+  const {
+    data: products,
+    isFetching,
+    isLoading,
+  } = useGetProductsQuery(
+    { keyword, category, gender, page },
+    { refetchOnMountOrArgChange: true }
+  );
+  console.log(products);
+  useEffect(() => {
+    const onScroll = () => {
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200;
+      if (scrolledToBottom && !isFetching) {
+        console.log("Fetching more data...");
+        setPage(page + 1);
       }
-     
-    return(
-        <>
-         <div className="grid grid-cols-5 gap-4 bg-white">
-        <div className=" flex flex-row justify-center bg-gray-50">
-          {/* <Category /> */}
-          <div className="flex flex-col md-auto pt-5">
-            <div className="items-center">
-              {menuItems.map((cat) => (
-                <div key={cat.title}>
-                  <FormControl>
-                    <FormLabel id="demo-radio-buttons-group-label">
-                      Gender
-                    </FormLabel>
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      defaultValue="unisex"
-                      name="radio-buttons-group"
-                      onChange={(e) => {
-                        setGender(e.target.value), setPage(1);
-                      }}
-                    >
-                      <FormControlLabel
-                        value="female"
-                        control={<Radio />}
-                        label="Female"
-                      />
-                      <FormControlLabel
-                        value="male"
-                        control={<Radio />}
-                        label="Male"
-                      />
-                      <FormControlLabel
-                        value="unisex"
-                        control={<Radio />}
-                        label="Unisex"
-                      />
-                    </RadioGroup>
-                  </FormControl>
-                  {cat.list.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setCategory(item.value), setPage(1);
-                      }}
-                      className="p-5 flex items-center gap-5 my-2 rounded-lg text-gray-700 hover:text-gray-950"
-                    >
-                      {item.icon}
-                      {item.title}
-                    </button>
-                  ))}
-                </div>
-              ))}
+    };
+    document.addEventListener("scroll", onScroll);
+    return function () {
+      document.removeEventListener("scroll", onScroll);
+    };
+  }, [page, isFetching]);
+  if (!products) {
+    return null;
+  }
+
+  return (
+    <>
+      <div className="grid grid-cols-5 gap-4 bg-white">
+        <div className="col-span-1">
+          <div className="sticky top-0 bg-gray-50 p-4">
+            {/* <Category /> */}
+            <div className="flex flex-col right-0 md-auto pt-5">
+              <div className="items-center ">
+                {menuItems.map((cat) => (
+                  <div key={cat.title}>
+                    <FormControl>
+                      <FormLabel id="demo-radio-buttons-group-label">
+                        Gender
+                      </FormLabel>
+                      <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue="unisex"
+                        name="radio-buttons-group"
+                        onChange={(e) => {
+                          setGender(e.target.value), setPage(1);
+                        }}
+                      >
+                        <FormControlLabel
+                          value="female"
+                          control={<Radio />}
+                          label="Female"
+                        />
+                        <FormControlLabel
+                          value="male"
+                          control={<Radio />}
+                          label="Male"
+                        />
+                        <FormControlLabel
+                          value="unisex"
+                          control={<Radio />}
+                          label="Unisex"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                    {cat.list.map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setCategory(item.value), setPage(1);
+                        }}
+                        className="p-5 flex items-center gap-5 my-2 rounded-lg text-gray-700 hover:text-gray-950"
+                      >
+                        {item.icon}
+                        {item.title}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-
         {/* search bar*/}
         <div className="col-span-4 ...">
           <div className="bg-gray-100">
@@ -144,7 +152,7 @@ export default function ProductList(){
               <div className="mt-6 pb-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {products.map((product) => (
                   <Fragment key={product._id}>
-                    <Link href={`/home/${product._id}`}>
+                    <Link href={`/products/${product._id}`}>
                       <div className="overflow-hidden  aspect-video cursor-pointer rounded-xl relative group aspect-h-1 aspect-w-1 w-full  lg:aspect-none  lg:h-80">
                         <div className="absolute pl-2">
                           <p>{product.title}</p>
@@ -177,6 +185,6 @@ export default function ProductList(){
           </div>
         </div>
       </div>
-        </>
-    )
+    </>
+  );
 }
