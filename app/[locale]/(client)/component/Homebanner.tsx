@@ -1,6 +1,5 @@
 'use client'
 import { motion } from "framer-motion";
-import Navbar from "./navbar";
 import { textVariant } from "./motion";
 
 export default function Homebanner(){
@@ -14,7 +13,7 @@ export default function Homebanner(){
             {/* <Navbar /> */}
             <img className="h-screen w-screen z-[-1] object-cover" src="/home-banner.jpeg" alt="Home-banner" />
             <div className="banner absolute top-[25%] left-[50%]">
-                <motion.h1 variants={textVariant(1)} className="text-4xl font-bold py-3 text-[#40E0D0] lg:text-6xl">Let's Take Journey</motion.h1>
+                <motion.h1 variants={textVariant(1)} className="text-4xl font-bold py-3 text-[#40E0D0] lg:text-6xl">Let s Take Journey</motion.h1>
             </div>
             <div className="bannerdescription  w-[100vw] text-white absolute top-[65%]">
                 <div className="max-w-[600px] mx-auto overflow-hidden">
