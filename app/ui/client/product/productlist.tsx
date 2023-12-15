@@ -44,6 +44,7 @@ export default function ProductList() {
   const [gender, setGender] = useState("");
   const [keyword, setKeyword] = useState("");
   const [category, setCategory] = useState("");
+  console.log(page)
   const { data: products, isFetching } = useGetProductsQuery(
     { keyword, category, gender, page },
     { refetchOnMountOrArgChange: true ,}
@@ -57,18 +58,14 @@ export default function ProductList() {
         setPage(page + 1);
       }
     };
-    const debouncedOnScroll = debounce(onScroll, 200);
-
+    const debouncedOnScroll = debounce(onScroll, 300);
     document.addEventListener("scroll", debouncedOnScroll);
-
     return function () {
       document.removeEventListener("scroll", debouncedOnScroll);
     };
-  }, [page, isFetching]);
-  if (!products) {
-    return null;
-  }
-
+  }, [page,isFetching]);
+  if(!products) return null
+ console.log('a')
   return (
     <>
       <div className="grid grid-cols-5 gap-4 bg-white">
@@ -79,7 +76,9 @@ export default function ProductList() {
               <div className="items-center ">
                 {menuItems.map((cat) => (
                   <div key={cat.title}>
-                    <FormControl>
+                    <FormControl 
+                    className="text-gray-700 hover:text-gray-950"
+                    >
                       <FormLabel id="demo-radio-buttons-group-label">
                         Gender
                       </FormLabel>

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Switch } from "../switch";
 import Link from "next/link";
 import { useI18n } from "@/app/ui/locales/client";
+import { ThemeSwitcher } from "@/app/ui/theme/ThemeSwitcher";
 
 export default function Navbar(){
     const t =  useI18n(); 
@@ -45,6 +46,7 @@ export default function Navbar(){
                 <Link  href={'/home#contactus'}><button className="border-2 text-[#40E0D0] border-[#40E0D0] px-8 py-1 font-bold cursor-pointer hidden md:block hover:bg-[#40E0D0] hover:text-white hover:duration-700">{t('contactus',{count :2})}</button></Link>
             </div>
             <Switch />
+            <ThemeSwitcher />
             <div className="flex items-center lg:hidden">
                 <div onClick={() => {setMenu(!menu);setScroll(false)}} className="absolute right-0 bg-[#40E0D0] rounded-[50%] p-1 mr-4">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-7 w-7 text-white"><path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd"></path></svg>

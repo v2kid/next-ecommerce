@@ -35,7 +35,6 @@ export const productApi = createApi({
       },  
       merge: (currentCache, newItems, arg,) => {
         const {page} = arg.arg
-        console.log(arg)
         if (page !== 1) {
           if (currentCache.length === [...currentCache, ...newItems].length) {
             return currentCache;

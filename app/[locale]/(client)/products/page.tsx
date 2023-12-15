@@ -1,6 +1,5 @@
-import Image from "next/image";
 
-import { MdDashboard } from "react-icons/md";
+import Image from "next/image";
 import ProductList from "@/app/ui/client/product/productlist";
 export const metadata = {
   title : 'Product Page'

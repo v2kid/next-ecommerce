@@ -5,14 +5,11 @@ import Link from "next/link";
 
 export default function BlogList() {
   const { data: Blog, isFetching } = useGetBlogsQuery(
-    {},
-    { pollingInterval: 1000 }
+    {}
   );
-  if (!Blog) return null;
-  console.log(Blog);
   return (
     <>
-      {Blog.data.map((item, index) => (
+      {!isFetching && Blog.data.map((item, index) => (
         <div
           key={index}
           className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4"
