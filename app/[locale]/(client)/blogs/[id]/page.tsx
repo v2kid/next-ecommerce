@@ -6,9 +6,8 @@ export default function DetailBlog({params}){
   const { id } = params
   const {data : Detail} = useGetDetailBlogQuery(id)
   if(!Detail) return null
-  console.log(id)
     return(
-      <div  className="relative">
+      <div  className=" pt-20 relative">
        <div className="w-full md:w-2/3 mx-auto">
             <div className="mx-5 my-3 text-sm">
             <a href="" className=" text-red-600 font-bold tracking-widest">author : {Detail.data.attributes.author}</a>

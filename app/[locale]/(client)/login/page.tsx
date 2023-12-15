@@ -1,13 +1,9 @@
-'use client'
-import styles from "@/app/ui/login/login.module.css";
 import LoginForm from "@/app/ui/login/loginForm/loginForm";
-import React from "react";
-
+import React, { useState } from "react";
 const LoginPage = () => {
+  
   return (
-    <div className={styles.container}>
       <LoginForm/>
-    </div>
   );
 };
 

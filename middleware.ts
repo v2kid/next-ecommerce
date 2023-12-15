@@ -3,6 +3,7 @@ import { createI18nMiddleware } from 'next-international/middleware';
 import { cookies } from 'next/headers'
 import { AnyAction, Middleware, MiddlewareAPI, isRejected, isRejectedWithValue } from '@reduxjs/toolkit';
 import { toast } from 'sonner';
+import { NextURL } from 'next/dist/server/web/next-url';
 
 
 function isPayloadErrorMessage(payload: unknown): payload is {
@@ -41,10 +42,13 @@ const I18nMiddleware = createI18nMiddleware({
   locales: ['en', 'fr'],
   defaultLocale: 'en',
 });
-const protectedRoutes = ["dashboard"];
 
 export default function middleware(request: NextRequest) {
   const token = request.cookies.get('token')
+  if (request.nextUrl.pathname === '/en') {
+    const absoluteURL = new URL("/home", request.nextUrl.origin);
+    return NextResponse.redirect(absoluteURL.toString());
+  }
   if (!token && request.nextUrl.pathname.includes('dashboard')) {
       const absoluteURL = new URL("/en/login", request.nextUrl.origin);
       return NextResponse.redirect(absoluteURL.toString());

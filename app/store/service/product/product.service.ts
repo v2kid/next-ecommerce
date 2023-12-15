@@ -17,8 +17,8 @@ export const productApi = createApi({
   keepUnusedDataFor: 10, // Giữ data trong 10s sẽ xóa (mặc định 60s)
   baseQuery: fetchBaseQuery({
     mode : 'cors',
-    // baseUrl: "http://localhost:3001",
-      baseUrl: 'https://back-end-next14.onrender.com',
+    baseUrl: "http://localhost:3001",
+      // baseUrl: 'https://back-end-next14.onrender.com',
          prepareHeaders(headers) {
           const token = Cookies.get('token')
       headers.set('Authorization', `Bearer ${token}`);
@@ -32,16 +32,20 @@ export const productApi = createApi({
       }),
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
-      },
+      },  
       merge: (currentCache, newItems, arg,) => {
         const {page} = arg.arg
+        console.log(arg)
         if (page !== 1) {
+          if (currentCache.length === [...currentCache, ...newItems].length) {
+            return currentCache;
+          }
           return [...currentCache, ...newItems];
         } else {
           return newItems
         }
       },
-      forceRefetch({ currentArg, previousArg, state, endpointState }) {
+      forceRefetch({ currentArg, previousArg }) {
         return currentArg !== previousArg
       },
       providesTags(result) {

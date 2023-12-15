@@ -6,7 +6,6 @@ const UsersPage = async ({ searchParams }) => {
 
   return (
     <div className={styles.container}>
-     
       <UsersList />
     </div>
     

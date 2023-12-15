@@ -79,6 +79,7 @@ const menuItems = [
 ];
 
 const Sidebar = async () => {
+
   return (
     <div className={styles.container}>
       <div className={styles.user}>

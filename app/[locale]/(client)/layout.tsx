@@ -1,18 +1,17 @@
 import React, { Suspense } from "react";
-import ResponsiveAppBar from "@/app/ui/client/Appbar";
 import Footer from "@/app/ui/client/home/footer";
 import { ProviderI8 } from "@/app/provider";
 import FBmess from "@/app/ui/client/chatbot/facebookmsg";
+import Navbar from "./component/navbar";
 const ClientLayout = ({ params: { locale }, children }: { params: { locale: string }; children: React.ReactNode }) => {
   return (
     <>
     <ProviderI8 locale={locale}>
-    <ResponsiveAppBar />
+        <Navbar />
         {children}
         <FBmess />
         <Footer />
     </ProviderI8>
-     
     </>
       
   );

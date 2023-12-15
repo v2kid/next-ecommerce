@@ -21,6 +21,7 @@
     "@strapi/blocks-react-renderer": "^1.0.0-beta.0",
     "add": "^2.0.6",
     "bcrypt": "5.1.1",
+    "framer-motion": "^10.16.16",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "8.0.0",
