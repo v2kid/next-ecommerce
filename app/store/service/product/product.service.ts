@@ -17,8 +17,8 @@ export const productApi = createApi({
   keepUnusedDataFor: 10, // Giữ data trong 10s sẽ xóa (mặc định 60s)
   baseQuery: fetchBaseQuery({
     mode : 'cors',
-    baseUrl: "http://localhost:3001",
-      // baseUrl: 'https://back-end-next14.onrender.com',
+    // baseUrl: "http://localhost:3001",
+      baseUrl: 'https://back-end-next14.onrender.com',
          prepareHeaders(headers) {
           const token = Cookies.get('token')
       headers.set('Authorization', `Bearer ${token}`);
