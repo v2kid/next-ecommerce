@@ -4,9 +4,10 @@ import { navVariants } from "./motion";
 import { motion } from "framer-motion";
 import { Switch } from "../switch";
 import Link from "next/link";
+import { useI18n } from "@/app/ui/locales/client";
 
 export default function Navbar(){
-
+    const t =  useI18n(); 
     const [menu, setMenu] = useState(true);
     const [scroll,setScroll] = useState(false);
 
@@ -37,11 +38,11 @@ export default function Navbar(){
         className={`${scroll && `backdrop-blur-lg`} top-0 fixed overflow-hidden flex justify-between items-center px-6 py-4 w-[100%] bg-[transparent] z-20`}>
             <a href="#"><img className=" z-20 h-[60px]" src="/travel_icon.png" alt="icon"/></a>
             <div className="gap-8 uppercase	 z-20 hidden lg:flex md:items-center">
-                <Link href={'/home#aboutus'}><li className="text-xl text-[#40E0D0] font-medium cursor-pointer hover:text-[#ebebeb] hover:duration-700">About Us</li></Link>
-                <Link href={'/home#packages'}><li className="text-xl text-[#40E0D0] font-medium cursor-pointer hover:text-[#ebebeb] hover:duration-700">Service</li></Link>
-                <Link href={'/products'} className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700">Products</Link>
-                <Link href={'/blogs'} className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700">Blogs</Link>
-                <Link  href={'/home#contactus'}><button className="border-2 text-[#40E0D0] border-[#40E0D0] px-8 py-1 font-bold cursor-pointer hidden md:block hover:bg-[#40E0D0] hover:text-white hover:duration-700">CONTACT US</button></Link>
+                <Link href={'/home#aboutus'}><div className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700"> {t('home',{count :2})}</div></Link>
+                <Link href={'/home#packages'}><div className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700">{t('service',{count :2})}</div></Link>
+                <Link href={'/products'} className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700">{t('product',{count :2})}</Link>
+                <Link href={'/blogs'} className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700">{t('blog',{count :2})}</Link>
+                <Link  href={'/home#contactus'}><button className="border-2 text-[#40E0D0] border-[#40E0D0] px-8 py-1 font-bold cursor-pointer hidden md:block hover:bg-[#40E0D0] hover:text-white hover:duration-700">{t('contactus',{count :2})}</button></Link>
             </div>
             <Switch />
             <div className="flex items-center lg:hidden">
