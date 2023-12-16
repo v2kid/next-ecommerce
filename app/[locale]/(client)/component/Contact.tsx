@@ -14,16 +14,16 @@ export default function Contact(){
         className="flex justify-center items-center flex-col px-8 py-14 sm:flex-row lg:px-16" id="contactus">
             <motion.div variants={buttonVariant(0.5)} className="flex-1 mr-4">
                 <h1 className="text-2xl font-bold sm:text-3xl overflow-hidden py-4 mb-8"><span className="text-[#40E0D0]">GET IN TOUCH</span> WITH OUR EXPERT</h1>
-                <input className="bg-[#6de5d9] placeholder-white font-bold rounded-xl px-4 h-[40px] w-[100%]" placeholder="Name..."/>
-                <input className="bg-[#6de5d9] placeholder-white font-bold rounded-xl px-4 h-[40px] my-8 w-[100%]" placeholder="Email..."/>
-                <textarea className="bg-[#6de5d9] placeholder-white font-bold mb-10 rounded-xl px-4 w-[100%] py-4" placeholder="Message..."></textarea>
+                <input className="bg-slate-400 placeholder-white font-bold rounded-xl px-4 h-[40px] w-[100%]" placeholder="Name..."/>
+                <input className="bg-slate-400 placeholder-white font-bold rounded-xl px-4 h-[40px] my-8 w-[100%]" placeholder="Email..."/>
+                <textarea className="bg-slate-400 placeholder-white font-bold mb-10 rounded-xl px-4 w-[100%] py-4" placeholder="Message..."></textarea>
             </motion.div>
             <motion.div variants={buttonVariant(0.5)} className="flex-1 mr-4">
             <div className="flex flex-col text-[#F4F8EB]">
                 <h1 className="text-3xl font-bold pb-14 text-[#40E0D0]">Contact Us</h1>
-                <div className="flex flex-col items-center gap-3 px-8 py-10 bg-white rounded-3xl shadow-main">
-                <PhoneIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" />
-                <p className="text-base leading-7 text-dark-grey-600">
+                <div className="flex flex-col items-center gap-3 px-8 py-10 bg-dark-600 rounded-3xl shadow-main text-slate-500">
+                <PhoneIcon className="h-6 w-6 text-600 group-hover:text-indigo-800" />
+                <p className="text-slate-500 leading-7 text-dark-grey-600">
                 {t('phone',{count :2})}
                 </p>
                 <a
