@@ -35,10 +35,11 @@ const menuItems = [
         icon: <MdShoppingBag />,
       },
       {
-        title: "Transactions",
-        path: "/dashboard/transactions",
+        title: "Contact",
+        path: "/dashboard/contacts",
         icon: <MdAttachMoney />,
       },
+     
     ],
   },
   {

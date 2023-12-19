@@ -52,8 +52,8 @@ export default function ProductList() {
     const onScroll = () => {
       const scrolledToBottom =
         window.innerHeight + window.scrollY >= document.body.offsetHeight - 200;
-      if (scrolledToBottom && !isFetching) {
-        setPage(page + 1);
+      if (scrolledToBottom && !isFetching ) {
+        setPage(page+1);
       }
     };
     const debouncedOnScroll = debounce(onScroll, 300);
@@ -62,8 +62,8 @@ export default function ProductList() {
       document.removeEventListener("scroll", debouncedOnScroll);
     };
   }, [page,isFetching]);
+  console.log('a')
   if(!products) return null
- console.log('a')
   return (
     <>
       <div className="grid grid-cols-5 gap-4 bg-white">

@@ -88,6 +88,19 @@ export const productApi = createApi({
       invalidatesTags: (_result, error, _body) =>
         error ? [] : [{ type: "Product", id: "LIST" }],
     }),
+    addContact: build.mutation<any,any>({
+      query(body) {
+        try {
+          return {
+            url: "contact",
+            method: "POST",
+            body,
+          };
+        } catch (error: any) {
+          throw new error.message();
+        }
+      },
+    }),
     deleteProduct: build.mutation<{}, any>({
       query(id) {
         return {
@@ -127,5 +140,6 @@ export const {
   useDeleteProductMutation,
   useGetDetailQuery,
   useUpdateProductMutation,
-  useGetProductsforadminQuery
+  useGetProductsforadminQuery,
+  useAddContactMutation
 } = productApi;
