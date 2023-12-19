@@ -1,7 +1,6 @@
 "use client";
 import { useGetDetailQuery } from "@/app/store/service/product/product.service";
 import { useI18n } from "@/app/ui/locales/client";
-import { useRouter } from "next/router";
 
 export default function ProductDetail({ params }) {
   const t = useI18n();
@@ -215,7 +214,6 @@ export default function ProductDetail({ params }) {
   </div>
 </div>
           )}
-        
         </div>
       </section>
     </>
