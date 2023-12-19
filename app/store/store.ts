@@ -10,7 +10,8 @@ import { productApi } from './service/product/product.service'
 import { blogApi } from './service/blog/blog.service'
 import { rtkQueryErrorLogger } from '@/middleware'
 
-export const store = configureStore({
+export const store =()=>{
+return configureStore({
   reducer: {
     user : userReducer,
     product : productReducer,
@@ -29,11 +30,13 @@ export const store = configureStore({
     authApi.middleware
   )
 })
+}
 
 // Optional, nhưng bắt buộc nếu dùng tính năng refetchOnFocus/refetchOnReconnect
-setupListeners(store.dispatch)
-
+setupListeners(store)
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<AppStore['getState']>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = AppStore['dispatch']
+export type AppStore = ReturnType<typeof store >
+

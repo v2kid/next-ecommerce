@@ -2,6 +2,9 @@
 import { useGetDetailBlogQuery } from "@/app/store/service/blog/blog.service";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
+
+
+
 export default function DetailBlog({params}){
   const { id } = params
   const {data : Detail} = useGetDetailBlogQuery(id)

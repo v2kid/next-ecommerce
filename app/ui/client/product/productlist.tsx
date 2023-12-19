@@ -44,7 +44,6 @@ export default function ProductList() {
   const [gender, setGender] = useState("");
   const [keyword, setKeyword] = useState("");
   const [category, setCategory] = useState("");
-  console.log(page)
   const { data: products, isFetching } = useGetProductsQuery(
     { keyword, category, gender, page },
     { refetchOnMountOrArgChange: true ,}
@@ -54,7 +53,6 @@ export default function ProductList() {
       const scrolledToBottom =
         window.innerHeight + window.scrollY >= document.body.offsetHeight - 200;
       if (scrolledToBottom && !isFetching) {
-        console.log("Fetching more data...");
         setPage(page + 1);
       }
     };

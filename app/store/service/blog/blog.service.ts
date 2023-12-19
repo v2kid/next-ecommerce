@@ -51,6 +51,7 @@ export const blogApi = createApi({
     //     return [{ type: 'Blog', id: 'LIST' }]
     //   }
     }),
+    
     getDetailBlog: build.query<any, any>({
       query: (id) => ({
         url: `blogs/${id}?populate=*`,

@@ -1,5 +1,7 @@
 import BlogList from "./components/Bloglist"
-
+export const metadata = {
+  title : 'Blogs page'
+}
 export default function Blog(){
 
     return(
