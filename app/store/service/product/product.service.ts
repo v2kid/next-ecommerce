@@ -101,6 +101,11 @@ export const productApi = createApi({
         }
       },
     }),
+    getContacts: build.query<any[], any>({
+      query: () => ({
+        url: `contact`,
+      }),
+    }),
     deleteProduct: build.mutation<{}, any>({
       query(id) {
         return {
@@ -141,5 +146,6 @@ export const {
   useGetDetailQuery,
   useUpdateProductMutation,
   useGetProductsforadminQuery,
-  useAddContactMutation
+  useAddContactMutation,
+  useGetContactsQuery,
 } = productApi;

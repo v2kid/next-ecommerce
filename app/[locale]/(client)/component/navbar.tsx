@@ -37,7 +37,7 @@ export default function Navbar(){
         initial="hidden"
         whileInView="show"
         className={`${scroll && `backdrop-blur-lg`} top-0 fixed overflow-hidden flex justify-between items-center px-6 py-4 w-[100%] bg-[transparent] z-20`}>
-            <a href="#"><img className=" z-20 h-[60px]" src="/travel_icon.png" alt="icon"/></a>
+            <a href="#"><img className=" z-10 h-[60px]" src="/logo2.png" height={30} width={200} alt="icon"/></a>
             <div className="gap-8 uppercase	 z-20 hidden lg:flex md:items-center">
                 <Link href={'/home#aboutus'}><div className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700"> {t('home',{count :2})}</div></Link>
                 <Link href={'/home#packages'}><div className="text-4sm my-3 text-[#40E0D0] font-medium cursor-pointer hover:opacity-70 hover:duration-700">{t('service',{count :2})}</div></Link>
