@@ -15,7 +15,7 @@ const AddUserPage = () => {
     password: '',
     roles : [null]
   };
-  const [addUser , addUserResult] = useAddUserMutation()
+  const [addUser ] = useAddUserMutation()
   const [formData, setFormData] = useState<User>(initialState)
   const handleSubmit= async ()=>{
     await addUser(formData).unwrap()

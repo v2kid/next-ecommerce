@@ -1,5 +1,5 @@
 "use client";
-import { redirect, usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./navbar.module.css";
 import {
   MdLogout,

@@ -79,7 +79,7 @@ const menuItems = [
   },
 ];
 
-const Sidebar = async () => {
+const Sidebar =()=> {
 
   return (
     <div className={styles.container}>

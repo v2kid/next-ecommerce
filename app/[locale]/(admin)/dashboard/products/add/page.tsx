@@ -16,7 +16,6 @@ import {
   Radio,
   RadioGroup,
   Select,
-  styled,
 } from "@mui/material";
 import React, { useState } from "react";
 import { toast } from "sonner";
@@ -32,7 +31,7 @@ const AddProductPage = () => {
     category: "",
   };
 
-  const [addProduct, addProductResult] = useAddProductMutation();
+  const [addProduct] = useAddProductMutation();
   const [formdata, setFormData] = useState(initialState);
   const addImageUrlField = () => {
     setFormData((prevData) => ({

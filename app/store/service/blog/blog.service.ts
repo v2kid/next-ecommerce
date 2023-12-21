@@ -1,25 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-interface Blog   {
-  data :  [
-        {
-            "id": string,
-            "attributes": {
-                "blog1": string
-                "createdAt": string
-                "updatedAt": string
-                "publishedAt": string
-            }
-        } 
-    ],
-  meta :  {
-        "pagination": {
-            "page": number,
-            "pageSize": number,
-            "pageCount": number,
-            "total": number
-        }
-    }
-}
+
 
 export const blogApi = createApi({
   reducerPath: 'blogApi', // Tên field trong Redux state
@@ -39,17 +19,6 @@ export const blogApi = createApi({
       query:()=>{
         return `blogs?populate=*`  
       },
-    //   providesTags(result) {
-    //     if (result) {
-    //       const final = [
-    //         ...result.map(({ id }) => ({ type: 'Blog' as const, id})),
-    //         { type: 'Blog' as const, id: 'LIST' }
-    //       ]
-    //       return final
-    //     }
-       
-    //     return [{ type: 'Blog', id: 'LIST' }]
-    //   }
     }),
     
     getDetailBlog: build.query<any, any>({

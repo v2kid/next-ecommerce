@@ -1,5 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { userApi } from "./user.service"
+import { createSlice } from "@reduxjs/toolkit"
 
 interface UserState {
     UserId: string

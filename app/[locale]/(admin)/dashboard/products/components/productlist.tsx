@@ -1,6 +1,6 @@
 "use client";
 import { useDeleteProductMutation, useGetProductsforadminQuery } from "@/app/store/service/product/product.service";
-import {  Box, Button, IconButton, TextField } from "@mui/material";
+import {  Box, IconButton } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import Link from "next/link";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -16,7 +16,7 @@ export default function ProductList() {
   const [gender, setGender] = useState("");
 
   const { data } = useGetProductsforadminQuery({keyword,category,gender});
-  const [deleteProduct, deleteProductResult] = useDeleteProductMutation()
+  const [deleteProduct] = useDeleteProductMutation()
   const handledelete=(id:any)=>{
     toast.warning('Delete Forever ?', {
       action: {

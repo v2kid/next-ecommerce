@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import { productApi } from "./product.service"
 
 interface ProductState {
@@ -20,7 +20,7 @@ interface ProductState {
       },
     },
     extraReducers: (builder) => {
-      builder.addMatcher(productApi.endpoints.updateProduct.matchFulfilled, (state, action) => {
+      builder.addMatcher(productApi.endpoints.updateProduct.matchFulfilled, (state) => {
         state.ProductId = ''
       })
     }

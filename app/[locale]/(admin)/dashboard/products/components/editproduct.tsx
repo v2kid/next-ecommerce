@@ -22,7 +22,7 @@ import {
 } from "@mui/material";
 import { toast } from "sonner";
 export default function EditProduct({ id }: any) {
-  const { data , isFetching } = useGetDetailQuery(id);
+  const { data  } = useGetDetailQuery(id);
   const initialState: Omit<Product, "_id"> = {
     title: "",
     description: "",
@@ -33,7 +33,7 @@ export default function EditProduct({ id }: any) {
     category: "",
   };
   const [formdata, setFormData] = useState(initialState);
-  const [updateProduct, updateProductResult] = useUpdateProductMutation();
+  const [updateProduct] = useUpdateProductMutation();
   const [mainImg, setMainImg] = useState(0);
   useEffect(() => {
     setFormData(data);

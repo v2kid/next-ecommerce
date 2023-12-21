@@ -53,7 +53,7 @@ export default function ProductDetail({ params }) {
                   {data.image.map((item, index) => {
                     if (item != "") {
                       return (
-                        <div className="rounded">
+                        <div key={index} className="rounded">
                           <Image
                             className="cursor-pointer w-50 h-50 relative rounded-10 mr-3 mt-3 "
                             onClick={() => {
@@ -63,7 +63,6 @@ export default function ProductDetail({ params }) {
                             width={100}
                             src={item}
                             alt={""}
-                            key={index}
                           />
                         </div>
                       );
